@@ -329,9 +329,10 @@
 			 * @return {Number} Number of slides
 			 */
 			getSlideCount() {
+				console.log(1,this.$slots.default())
 				if (this.$slots.default !== undefined) {
-					return this.$slots.default.filter((value) => {
-						return value.tag !== void 0
+					return this.$slots.default()[0].children.filter((value) => {
+						return value
 					}).length
 				}
 				return 0
