@@ -139,24 +139,35 @@ const _sfc_main = {
      */
     addStyle(idx) {
       const len = this.list.length;
+      const leftShowNum = Math.floor(this.showNum / 2) - 1;
+      const rightShowNum = this.showNum - leftShowNum;
+      let transform = "";
       if (idx > len / 2) {
         var left = len - idx;
-        const display = idx > this.showNum ? "block" : "none";
+        const display = idx >= len - leftShowNum;
         console.log("if", idx, display);
+        if (display) {
+          transform = "scaleX(" + (0.8 - left / 10) + ") translate(-" + left * 19 + "%,0px)";
+        } else {
+          transform = "scaleX(" + (0.8 - left / 10) + ") translate(-" + (left - 1) * 19 + "%,0px)";
+        }
         return {
-          transform: "scaleX(" + (0.8 - left / 10) + ") translate(-" + left * 19 + "%,0px)",
-          zIndex: 9999 - left,
-          opacity: 0.8 / left,
-          display
+          transform,
+          zIndex: 9999 - left
         };
       } else {
-        const display = idx > len - this.showNum ? "none" : "block";
+        const display = idx < rightShowNum;
         console.log("else", idx, display);
+        if (display) {
+          transform = "scaleX(" + (0.8 - idx / 10) + ") translate(" + idx * 19 + "%,0px)";
+        } else {
+          transform = "scaleX(" + (0.8 - idx / 10) + ") translate(" + (idx - 1) * 19 + "%,0px)";
+        }
         return {
-          transform: "scaleX(" + (0.8 - idx / 10) + ") translate(" + idx * 19 + "%,0px)",
-          zIndex: 9999 - idx,
-          opacity: 0.8 / (idx === 0 ? 0.8 : idx),
-          display
+          transform,
+          zIndex: 9999 - idx
+          //    opacity: 0.8 / (idx === 0 ? 0.8 : idx),
+          //    display,
         };
       }
     },

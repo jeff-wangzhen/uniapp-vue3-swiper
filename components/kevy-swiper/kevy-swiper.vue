@@ -190,27 +190,43 @@ export default {
       addStyle(idx) {
          // console.log(idx);
          const len = this.list.length;
+
+         const leftShowNum = Math.floor(this.showNum / 2) - 1;
+
+         const rightShowNum = this.showNum - leftShowNum;
+         let transform = "";
          //let sn = 2//this.showNum == 5 && this.list.length >= 5 ? 2 : 1;
          if (idx > len / 2) {
             //这里是数组后一半的item放在左边,平移位置由远到近，例如共6个，后2个处理在这里
             var left = len - idx;
-            const display = idx > this.showNum ? "block" : "none";
+            const display = idx >= len - leftShowNum;
             console.log("if", idx, display);
+            if (display) {
+               transform = "scaleX(" + (0.8 - left / 10) + ") translate(-" + left * 19 + "%,0px)";
+            } else {
+               transform =
+                  "scaleX(" + (0.8 - left / 10) + ") translate(-" + (left - 1) * 19 + "%,0px)";
+            }
             return {
-               transform: "scaleX(" + (0.8 - left / 10) + ") translate(-" + left * 19 + "%,0px)",
+               transform,
                zIndex: 9999 - left,
-               opacity: 0.8 / left,
-               display,
             };
          } else {
-            const display = idx > len - this.showNum ? "none" : "block";
+            //这里是数组前一半item放在右边和正中间，平移位置由近到远，例如共6个，前4个处理在这里，这里第一个元素始终放在中间位置
+            const display = idx < rightShowNum;
             console.log("else", idx, display);
-            //这里是数组前一半item放在右边，平移位置由近到远，例如共6个，前4个处理在这里，这里第一个元素始终放在中间位置
+            if (display) {
+               transform = "scaleX(" + (0.8 - idx / 10) + ") translate(" + idx * 19 + "%,0px)";
+            } else {
+               transform =
+                  "scaleX(" + (0.8 - idx / 10) + ") translate(" + (idx - 1) * 19 + "%,0px)";
+            }
+
             return {
-               transform: "scaleX(" + (0.8 - idx / 10) + ") translate(" + idx * 19 + "%,0px)",
+               transform,
                zIndex: 9999 - idx,
-               opacity: 0.8 / (idx === 0 ? 0.8 : idx),
-               display,
+               //    opacity: 0.8 / (idx === 0 ? 0.8 : idx),
+               //    display,
             };
          }
       },

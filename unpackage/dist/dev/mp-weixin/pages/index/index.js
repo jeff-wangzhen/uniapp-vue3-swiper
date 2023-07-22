@@ -32,11 +32,11 @@ const _sfc_main = {
       {
         imgUrl: "https://www.changan.com.cn/uploads/chan_newsthumb/cd4353d0d1322c6f085b1bb0ecf2c835.jpg",
         imgDesc: "我是第五个图片的说明文字"
-      },
-      {
-        imgUrl: "https://www.changan.com.cn/cars_m/UNI-V/images/meitu/1.jpg",
-        imgDesc: "我是第六个图片的说明文字"
       }
+      // {
+      //     imgUrl: 'https://www.changan.com.cn/cars_m/UNI-V/images/meitu/1.jpg',
+      //     imgDesc: '我是第六个图片的说明文字'
+      // }
     ];
     this.list = list;
   },
