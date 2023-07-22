@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "uni-app",
   "usingComponents": {
-    "liu-beautiful-slide": "../../components/liu-beautiful-slide/liu-beautiful-slide"
+    "kevy-swiper": "../../components/kevy-swiper/kevy-swiper"
   }
 }

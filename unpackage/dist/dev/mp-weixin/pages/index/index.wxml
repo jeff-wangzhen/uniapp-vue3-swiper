@@ -1,1 +1,1 @@
-<view class="content"><liu-beautiful-slide wx:if="{{c}}" bindchange="{{a}}" bindclick="{{b}}" u-i="41f2a56c-0" bind:__l="__l" u-p="{{c}}"></liu-beautiful-slide></view>
+<view class="t-content data-v-1cf27b2a"><kevy-swiper wx:if="{{a}}" class="data-v-1cf27b2a" bindclick="{{b}}" bindchange="{{c}}" u-i="1cf27b2a-0" bind:__l="__l" u-p="{{d}}"/></view>

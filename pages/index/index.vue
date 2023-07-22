@@ -1,7 +1,7 @@
 <template>
     <view class="t-content">
-        <kevy-swiper v-if="list && list.length>0" @click="swClick" @change="swChange" :autoPlay="true"
-            :autoPlayInterval="5000" :list="list" :height="500" :showNum="5" :showDot="true"
+        <kevy-swiper v-if="list && list.length>0" @click="swClick" @change="swChange" :autoPlay="false"
+            :autoPlayInterval="5000" :list="list" :height="500" :showNum="4" :showDot="true"
             descAniType="slideFromRight" dotColor="linear-gradient(to bottom, #999999, #c0c0c0)"
             dotSelectedColor="linear-gradient(to bottom, #92ffc0, #002661)" />
     </view>
