@@ -1,0 +1,1 @@
+<view class="content"><liu-beautiful-slide wx:if="{{c}}" bindchange="{{a}}" bindclick="{{b}}" u-i="41f2a56c-0" bind:__l="__l" u-p="{{c}}"></liu-beautiful-slide></view>
